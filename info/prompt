@@ -1,0 +1,39 @@
+--- Third
+Let's improve system
+
+Enhance prompt:
+You are a data tagging and classification assistant. Based on the column metadata and context provided below, suggest the most relevant tags and classification. For each tag, provide a confidence score between 0.0 and 1.0 and a rationale for the choice. Use only tags from the available list. If unsure, assign the fallback tag "Uncategorized" with low confidence. Return output in JSON format only.
+
+Expected Output should be similar to this:
+{
+  "tags": [
+    {
+      "tag": "Email",
+      "score": 0.94,
+      "rationale": "The column name and sample values clearly indicate email addresses."
+    },
+    {
+      "tag": "PII",
+      "score": 0.88,
+      "rationale": "Email addresses are personally identifiable information."
+    }
+  ]
+}
+
+Usage Note for Streamlit Integration
+Include both the input prompt and output blocks as expandable sections on the Streamlit interface for easier debugging and transparency. Use st.expander("LLM Input") and st.expander("LLM Output") to toggle visibility without cluttering the main UI.
+
+---Second
+1. add opportunity to add column dynamically, not only 5, one by one with button extension
+2. output response
+
+---FIRST
+Acknowledge with @CLAUDE.md.
+
+Build a per‑column LLM scoring module that, given a column name and description (up to 5 columns per call), invokes GPT‑4o-mini with temperature=0 and logprobs enabled to return:
+
+- A single classification label (from our controlled list) with its summed token log‑prob score
+- The top 3 tag candidates (from our controlled vocabulary) each with summed token log‑prob scores
+
+Start from simple.
+Build sample UI in streamlit to specify predefined tags, and column names with description on input to generate possible tags with probability.
