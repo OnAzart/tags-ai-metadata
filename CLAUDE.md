@@ -14,3 +14,5 @@ Python, LangGraph, Streamlit
 - Keep it simple
 - Keep the UI clean
 - Don't overcomplicate
+
+- Commit after each significant change (e.g. git commit -am '<description>')

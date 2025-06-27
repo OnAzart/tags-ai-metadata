@@ -201,7 +201,7 @@ Return ONLY valid JSON, no additional text."""
         
         # Make single API call with enhanced prompt
         response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=deployment,
             messages=[{
                 "role": "user", 
                 "content": input_prompt
@@ -271,7 +271,7 @@ Return ONLY valid JSON, no additional text."""
         
         # Make single API call for all columns
         response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=deployment,
             messages=[{
                 "role": "user", 
                 "content": input_prompt
